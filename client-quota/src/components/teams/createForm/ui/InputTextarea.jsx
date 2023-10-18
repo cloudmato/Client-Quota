@@ -17,6 +17,10 @@ const StyledInputTextarea = styled.textarea`
         color: var(--D3, #D3D3D3);
     }
 
+    &:focus {
+        border: 2px solid #6349F6;
+        outline: none;
+    }
 `
 
 const InputTextarea = ({ name, placeholder }) => {

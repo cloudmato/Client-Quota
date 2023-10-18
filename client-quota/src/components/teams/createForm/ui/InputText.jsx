@@ -16,6 +16,11 @@ const StyledInputText = styled.input`
     ::placeholder {
         color: var(--D3, #D3D3D3);
       }
+
+    &:focus {
+        border: 2px solid #6349F6;
+        outline: none;
+    }
 `
 
 const InputText = ({ name, placeholder }) => {

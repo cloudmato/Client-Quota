@@ -1,14 +1,6 @@
 import styled from 'styled-components';
 
-const StyledInputGroupLink = styled.div`
-    width: 450px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    border-radius: 20px;
-    border: 2px solid var(--D3, #D3D3D3);
-    background: #FFF;
-`;
+
 
 const FixedGroupLink = styled.div`
     width: 180px;
@@ -42,8 +34,24 @@ const FlexGroupLink = styled.input`
     ::placeholder {
         color: var(--D3, #D3D3D3);
     }
+
 `;
 
+const StyledInputGroupLink = styled.div`
+    width: 450px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    border: 2px solid var(--D3, #D3D3D3);
+    border-left: none;
+    background: #FFF;
+
+    &:focus-within {
+        border: 2px solid #6349F6;
+        border-left: none;
+    }
+`;
 const InputGroupLink = ({ name, placeholder }) => {
     return <StyledInputGroupLink>
         <FixedGroupLink>quotime.co.kr</FixedGroupLink>

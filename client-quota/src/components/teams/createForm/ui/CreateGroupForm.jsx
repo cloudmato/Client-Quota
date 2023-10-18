@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import InputTitle from "./ui/InputTitle";
-import InputText from "./ui/InputText";
-import InputProfile from "./ui/InputProfile";
-import InputGroupLink from "./ui/InputGroupLink";
-import InputTextarea from "./ui/InputTextarea";
+import InputTitle from "./InputTitle";
+import InputText from "./InputText";
+import InputProfile from "./InputProfile";
+import InputGroupLink from "./InputGroupLink";
+import InputTextarea from "./InputTextarea";
 
 const StyledGroupForm = styled.form`
     width: 625px;
@@ -18,6 +18,7 @@ const CompleteButton = styled.button`
     height: 45px;
     border-radius: 20px;
     background: #6349F6;
+    border: none;
     color: #FFF;
     text-align: center;
     font-size: 18px;
@@ -27,6 +28,7 @@ const CompleteButton = styled.button`
     margin: 20px auto 0 auto;
 
     cursor: pointer;
+    
 `
 
 const CreateGroupForm = () => {

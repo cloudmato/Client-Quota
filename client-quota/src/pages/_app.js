@@ -3,8 +3,29 @@
 // 주요 사용 목적 : 모든 컴포넌트에 공통으로 적용할 속성 관리
 // _app은 로직, 전역 스타일 등 컴포넌트에 공통 데이터를 다룬다. 
 
+import Footer from '@/components/common/Footer';
+import Header from '@/components/common/header';
+import styled from 'styled-components';
 import '@/styles/globals.css'
 
 export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <AppContainer>
+      <Header></Header>
+      <MainContent>
+        <Component {...pageProps} />
+      </MainContent>
+      <Footer></Footer>
+    </AppContainer>
+  )
 }
+
+const AppContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+`;
+
+const MainContent = styled.div`
+  flex: 1;
+`;

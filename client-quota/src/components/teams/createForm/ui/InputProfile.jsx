@@ -3,6 +3,51 @@ import styled from 'styled-components';
 
 const TeamProfileIcon = "/assets/svg/teamProfileIcon.svg"
 
+const InputProfile = () => {
+    const [profile, setProfile] = useState(TeamProfileIcon);
+
+    //프로필 이미지 삽입
+    const handleProfileChange = (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+
+        reader.onloadend = () => {
+            setProfile(reader.result);
+        };
+
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+    };
+
+    //프로필 이미지 삭제
+    const handleProfileRemove = () => {
+        setProfile(TeamProfileIcon);
+    }
+
+    return <StyledInputProfile>
+        <ProfileDisplay $imgUrl={profile}/>
+        <input
+            id="profileInput"
+            type="file"
+            accept="image/*"
+            name="teamProfileImage"
+            style={{display: 'none'}}
+            onChange={handleProfileChange}
+        />
+        <div>
+            <ProfileUploadButton onClick={() => document.getElementById('profileInput').click()}>프로필 등록</ProfileUploadButton>
+            <ProfileDeleteButton onClick={handleProfileRemove}>프로필 삭제</ProfileDeleteButton>
+            <br />
+            <ImgSizeGuide>400x400 픽셀 사이즈를 권장합니다</ImgSizeGuide>
+        </div>
+    </StyledInputProfile>
+}
+
+export default InputProfile;
+
 const StyledInputProfile = styled.div`
     width: 500px;
     display: flex;
@@ -58,50 +103,4 @@ const ImgSizeGuide = styled.span`
     font-weight: 600;
     line-height: normal;
     text-align: center;
-`
-
-
-const InputProfile = () => {
-    const [profile, setProfile] = useState(TeamProfileIcon);
-
-    const handleProfileChange = (e) => {
-        const file = e.target.files[0];
-        if (!file) return;
-
-        const reader = new FileReader();
-
-        reader.onloadend = () => {
-            setProfile(reader.result);
-        };
-
-        if (file) {
-            reader.readAsDataURL(file);
-        }
-    };
-
-    const handleProfileRemove = () => {
-        setProfile(TeamProfileIcon);
-    }
-
-
-
-    return <StyledInputProfile>
-        <ProfileDisplay $imgUrl={profile}/>
-        <input
-            id="profileInput"
-            type="file"
-            accept="image/*"
-            name="teamProfileImage"
-            style={{display: 'none'}}
-            onChange={handleProfileChange}
-        />
-        <div>
-            <ProfileUploadButton onClick={() => document.getElementById('profileInput').click()}>프로필 등록</ProfileUploadButton>
-            <ProfileDeleteButton onClick={handleProfileRemove}>프로필 삭제</ProfileDeleteButton>
-            <br />
-            <ImgSizeGuide>400x400 픽셀 사이즈를 권장합니다</ImgSizeGuide>
-        </div>
-    </StyledInputProfile>
-}
-
-export default InputProfile;
+`;

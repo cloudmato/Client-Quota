@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+const InputTextarea = ({ name, placeholder }) => {
+    return <StyledInputTextarea type="textarea" name={name} placeholder={placeholder}/>
+}
+
+export default InputTextarea;
+
 const StyledInputTextarea = styled.textarea`
     width: 580px;
     height: 120px;
@@ -22,9 +28,3 @@ const StyledInputTextarea = styled.textarea`
         outline: none;
     }
 `
-
-const InputTextarea = ({ name, placeholder }) => {
-    return <StyledInputTextarea type="textarea" name={name} placeholder={placeholder}/>
-}
-
-export default InputTextarea;

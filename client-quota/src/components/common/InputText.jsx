@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+const InputText = ({ name, placeholder }) => {
+    return <StyledInputText type="text" name={name} placeholder={placeholder}/>
+}
+
+export default InputText;
+
 const StyledInputText = styled.input`
     width: 410px;
     height: 50px;
@@ -22,9 +28,3 @@ const StyledInputText = styled.input`
         outline: none;
     }
 `
-
-const InputText = ({ name, placeholder }) => {
-    return <StyledInputText type="text" name={name} placeholder={placeholder}/>
-}
-
-export default InputText;

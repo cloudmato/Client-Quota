@@ -1,8 +1,17 @@
 import styled from 'styled-components';
 
+//<InputLink>고정 링크</InputLink> -> 이런 식으로 작성하시면 FixedLink에 삽입됩니다
 
+const InputLink = ({ name, placeholder, children}) => {
+    return <StyledInputLink>
+        <FixedLink>{children}</FixedLink>
+        <FlexLink name={name} placeholder={placeholder}/>
+    </StyledInputLink>
+}
 
-const FixedGroupLink = styled.div`
+export default InputLink;
+
+const FixedLink = styled.div`
     width: 180px;
     height: 50px;
     border-radius: 20px;
@@ -15,10 +24,9 @@ const FixedGroupLink = styled.div`
     font-style: normal;
     font-weight: 550;
     line-height: normal;
+`;
 
-`
-
-const FlexGroupLink = styled.input`
+const FlexLink = styled.input`
     flex: 1;
     border: none;
     background: none;
@@ -34,10 +42,9 @@ const FlexGroupLink = styled.input`
     ::placeholder {
         color: var(--D3, #D3D3D3);
     }
-
 `;
 
-const StyledInputGroupLink = styled.div`
+const StyledInputLink = styled.div`
     width: 450px;
     height: 50px;
     display: flex;
@@ -52,11 +59,3 @@ const StyledInputGroupLink = styled.div`
         border-left: none;
     }
 `;
-const InputGroupLink = ({ name, placeholder }) => {
-    return <StyledInputGroupLink>
-        <FixedGroupLink>quotime.co.kr</FixedGroupLink>
-        <FlexGroupLink name={name} placeholder={placeholder}/>
-    </StyledInputGroupLink>
-}
-
-export default InputGroupLink;

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import InputTitle from "../../../common/InputTitle";
 import InputText from "../../../common/InputText";
 import InputProfile from "./InputProfile";
-import InputLink from "../../../common/InputLink";
+import InputGroupLink from "./InputGroupLink";
 import InputTextarea from "../../../common/InputTextarea";
 
 const CreateGroupForm = () => {
@@ -15,7 +15,7 @@ const CreateGroupForm = () => {
             <InputText name="teamName" placeholder="그룹 이름을 입력해 주세요."/>
 
             <InputTitle required>그룹 링크</InputTitle>
-            <InputLink name="teamUrl" placeholder="GroupExample">quotime.co.kr/</InputLink>
+            <InputGroupLink name="teamUrl" placeholder="GroupExample">quotime.co.kr/</InputGroupLink>
 
             <InputTitle>회사/그룹 소개</InputTitle>
             <InputTextarea name="teamDescription" placeholder="우리 회사/그룹에 대해 설명해 주세요."/>
@@ -31,7 +31,7 @@ const StyledGroupForm = styled.form`
     width: 625px;
     display: flex;
     flex-direction: column;
-    align-tiems: center;
+    align-ems: center;
     justify-content: center;
 `
 

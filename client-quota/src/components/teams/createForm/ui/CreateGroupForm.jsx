@@ -7,7 +7,7 @@ import InputTextarea from "../../../common/InputTextarea";
 
 const CreateGroupForm = () => {
     return (
-        <StyledGroupForm>
+        <StyledGroupForm onSubmit={e => e.preventDefault()}>
             <InputTitle>그룹 프로필</InputTitle>
             <InputProfile name="teamProfileImage"/>
 

@@ -69,7 +69,6 @@ const Home = () => {
           <h1 style={{margin: '10px', color:'#5FCF9B'}}>Quotime</h1>
           <h1>과 시작 해보세요 </h1>
         </EndingText>
-        <StartButton style={{height:'37px', width:'120px', color:'white'}}>시작하기</StartButton>
       </Ending>
     </Homepage>
 )}

@@ -7,16 +7,21 @@ import Footer from '@/components/common/Footer';
 import Header from '@/components/common/header';
 import styled from 'styled-components';
 import '@/styles/globals.css'
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 export default function App({ Component, pageProps }) {
+  const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;
+
   return (
-    <AppContainer>
+    <GoogleOAuthProvider clientId={clientId}>
+      <AppContainer>
       <Header></Header>
       <MainContent>
         <Component {...pageProps} />
       </MainContent>
       <Footer></Footer>
     </AppContainer>
+    </GoogleOAuthProvider>
   )
 }
 

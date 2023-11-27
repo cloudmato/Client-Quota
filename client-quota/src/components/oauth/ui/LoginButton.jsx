@@ -1,17 +1,19 @@
+import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
 import { useGoogleLogin } from "@react-oauth/google";
 
-const login = () => {
-    const googleLogin = useGoogleLogin({
-        // 로그인 기능 구현해야 함
-    });
-}
-
 const LoginButton = () => {
+    const googleLogin = useGoogleLogin({
+        flow: 'auth-code',
+        onSuccess: codeResponse => console.log(codeResponse)
+        // 인가코드 받아오는 것까지는 완료... 이제 인가코드를 백엔드로 전달해야 함 
+    });
+
+
     return (
-        <CusttomLoginButton onClick={() => login()}>
-            <Image src="/assets/svg/googleLogo.svg" alt="Google Icon" width={60} height={60}/>
+        <CusttomLoginButton onClick={() => googleLogin()}>
+            <Image src="/assets/svg/googleLogo.svg" alt="Google Icon" width={60} height={60} priority/>
             <LogInText>Google 계정으로 시작하기</LogInText>
         </CusttomLoginButton>
     )

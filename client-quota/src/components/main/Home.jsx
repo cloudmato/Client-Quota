@@ -77,6 +77,20 @@ export default Home;
 
 const Homepage = styled.div``
 
+const EasyPlatform = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: linear-gradient(to bottom, #ffffff, #F0EEFD);
+`
+
+const EasyPlatformText = styled.div`
+  align-items: center;
+  h1{
+    margin-bottom: 30px;
+  }
+`
+
 const EasyPlatformImg = styled.div`
   position: relative;
   width: 650px;
@@ -88,6 +102,75 @@ const EasyPlatformImg = styled.div`
     object-fit: contain;
   }
 `
+
+const Reservation = styled.div`
+  display: flex;
+  padding: 100px;
+  justify-content: space-around;
+  align-items: center;
+`
+
+const ReservationText = styled.div`
+  h1{
+    margin-bottom: 30px;
+  }
+`
+
+const ReservationImg = styled.img`
+  top: 200px
+  width: 590px;
+  height: 380px;
+  box-shadow: 0px 9px 20px rgba(0, 0, 0, 0.5);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+`
+
+const Progress = styled.div`
+  display: flex;
+  padding: 100px;
+  justify-content: space-around;
+  align-items: center;
+`
+
+const ProgressText = styled.div`
+  h1{
+    margin-bottom: 30px;
+  }
+`
+
+const ProgressImg = styled.img`
+  top: 200px
+  width: 750px;
+  height: 480px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+`
+
+const Ending = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 200px;
+  justify-content: space-around;
+  align-items: center;
+  background: linear-gradient(to bottom, #ffffff, #F0EEFD);
+`
+
+const EndingText = styled.div`
+  align-items: center;
+  display: flex;
+  h1{
+    margin-bottom: 30px;
+  }
+`
+
 const CheckContainer = styled.div`
   display: flex;
   align-items: center;
@@ -110,88 +193,6 @@ const PopupImg = styled.img`
     height: 100%;
     object-fit: contain;
   }
-`
-
-const ReservationImg = styled.img`
-  top: 200px
-  width: 590px;
-  height: 380px;
-  box-shadow: 0px 9px 20px rgba(0, 0, 0, 0.5);
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-`
-
-const ProgressImg = styled.img`
-  top: 200px
-  width: 750px;
-  height: 480px;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-`
-
-const EasyPlatform = styled.div`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background: linear-gradient(to bottom, #ffffff, #F0EEFD);
-`
-
-const EasyPlatformText = styled.div`
-  align-items: center;
-  h1{
-    margin-bottom: 30px;
-  }
-`
-
-const EndingText = styled.div`
-  align-items: center;
-  display: flex;
-  h1{
-    margin-bottom: 30px;
-  }
-`
-
-const ReservationText = styled.div`
-  h1{
-    margin-bottom: 30px;
-  }
-`
-
-const ProgressText = styled.div`
-  h1{
-    margin-bottom: 30px;
-  }
-`
-
-const Reservation = styled.div`
-  display: flex;
-  padding: 100px;
-  justify-content: space-around;
-  align-items: center;
-`
-
-const Progress = styled.div`
-  display: flex;
-  padding: 100px;
-  justify-content: space-around;
-  align-items: center;
-`
-
-const Ending = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 200px;
-  justify-content: space-around;
-  align-items: center;
-  background: linear-gradient(to bottom, #ffffff, #F0EEFD);
 `
 
 const StartButton = styled(Button)`

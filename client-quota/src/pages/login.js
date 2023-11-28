@@ -1,4 +1,4 @@
-import LoginLanding from "@/components/oauth/LoginLanding";
+import LoginLanding from "@/components/auth/LoginLanding";
 
 const LoginPage = () => {
     return <LoginLanding/>

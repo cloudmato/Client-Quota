@@ -21,7 +21,7 @@ const Home = () => {
         <EasyPlatformText data-aos='fade-up' data-aos-duration='800'>
           <h1>스타트업과 연결해주는</h1> 
           <h1>쉽고 간단한 일정 관리 플랫폼</h1>
-          <p style={{fontWeight: 'Thin', color: '#565353'}}>멘토링 일정을 빠르게, Quotime과 함께해요</p>
+          <p style={{fontWeight: 'thin', color: '#565353'}}>멘토링 일정을 빠르게, Quotime과 함께해요</p>
           <StartButton style={{height:'37px', width:'120px', color:'white'}} data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">시작하기</StartButton>
         </EasyPlatformText>
         <EasyPlatformImg>                        
@@ -32,18 +32,18 @@ const Home = () => {
         <ReservationText>
           <p style={{color:'#6349F6'}}>미팅</p>
           <h2>쉽고 빠른 미팅 예약 생성</h2>
-          <CheckContiner data-aos='fade-up' data->
+          <CheckContainer data-aos='fade-up' data->
               <img src='assets/svg/check.svg'/>
               <p>예약 이름과 미팅 방법 설정을 한번에</p>
-          </CheckContiner>
-          <CheckContiner data-aos='fade-up' data-aos-delay='200'>
+          </CheckContainer>
+          <CheckContainer data-aos='fade-up' data-aos-delay='200'>
               <img src='assets/svg/check.svg'/>
               <p>빠르게 예약 링크까지 생성</p>
-          </CheckContiner>
-          <CheckContiner data-aos='fade-up' data-aos-delay='400'>
+          </CheckContainer>
+          <CheckContainer data-aos='fade-up' data-aos-delay='400'>
               <img src='assets/svg/check.svg'/>
               <p>선택형 버튼으로 불가능한 날짜를 제외</p>
-          </CheckContiner>
+          </CheckContainer>
         </ReservationText>
         <ReservationImg src='assets/svg/reservation.svg' alt='reservation'/>
         <PopupImg data-aos='fade-left' src='assets/svg/reservationPopUp.svg' alt='popup'></PopupImg>
@@ -53,14 +53,14 @@ const Home = () => {
           <ProgressText>
             <p style={{color:'white'}}>예약</p>
             <h2>예약자도 간편하게 미팅을 예약</h2>
-            <CheckContiner data-aos='fade-up'>
+            <CheckContainer data-aos='fade-up'>
               <img src='assets/svg/check1.svg'/>
               <p>예약 이름과 미팅 방법 설정을 한번에</p>
-            </CheckContiner>
-            <CheckContiner data-aos='fade-up' data-aos-delay='200'>
+            </CheckContainer>
+            <CheckContainer data-aos='fade-up' data-aos-delay='200'>
               <img src='assets/svg/check1.svg'/>
               <p>원하는 위치와 날짜까지 </p>
-            </CheckContiner>
+            </CheckContainer>
           </ProgressText>
       </Progress>
       <Ending data-aos='fade-up'>
@@ -88,7 +88,7 @@ const EasyPlatformImg = styled.div`
     object-fit: contain;
   }
 `
-const CheckContiner = styled.div`
+const CheckContainer = styled.div`
   display: flex;
   align-items: center;
 
@@ -113,7 +113,6 @@ const PopupImg = styled.img`
 `
 
 const ReservationImg = styled.img`
-  position: relative;
   top: 200px
   width: 590px;
   height: 380px;
@@ -127,7 +126,6 @@ const ReservationImg = styled.img`
 `
 
 const ProgressImg = styled.img`
-  position: relative;
   top: 200px
   width: 750px;
   height: 480px;

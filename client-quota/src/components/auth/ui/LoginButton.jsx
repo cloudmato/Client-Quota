@@ -2,12 +2,26 @@ import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
 import { useGoogleLogin } from "@react-oauth/google";
+import { sendAuthorizationCode } from "@/pages/api/auth";
+import { useAuth } from "@/hooks/useAuth";
 
 const LoginButton = () => {
+    const { login } = useAuth();
+
     const googleLogin = useGoogleLogin({
         flow: 'auth-code',
-        onSuccess: codeResponse => console.log(codeResponse)
-        // 인가코드 받아오는 것까지는 완료... 이제 인가코드를 백엔드로 전달해야 함 
+        onSuccess: async codeResponse => {
+            try {
+                const response = await sendAuthorizationCode(codeResponse.code);
+                localStorage.setItem('accessToken', response.data.accessToken);
+                login(response.data.user);
+            } catch (error) {
+                console.error('Error', error);
+            }
+        },
+        onError: error => {
+            console.error(error);
+        },
     });
 
 

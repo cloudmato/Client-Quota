@@ -2,11 +2,13 @@ import styled from 'styled-components';
 
 //<InputLink>고정 링크</InputLink> -> 이런 식으로 작성하시면 FixedLink에 삽입됩니다
 
-const InputLink = ({ name, placeholder, children}) => {
-    return <StyledInputLink>
+const InputLink = ({ name, placeholder, children, value, onChange}) => {
+    return (
+    <StyledInputLink value={value} onChange={(e) => onChange(e.target.value)}>
         <FixedLink>{children}</FixedLink>
         <FlexLink name={name} placeholder={placeholder}/>
-    </StyledInputLink>
+    </StyledInputLink> 
+    )
 }
 
 export default InputLink;

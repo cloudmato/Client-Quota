@@ -6,10 +6,8 @@ import InputSubTitle from './InputSubTitle';
 const ReservationDurationPicker = ({ reservationDuration, setReservationDuration }) => {
     return (
         <DurationPickerContainer>
-            <SpaceBetweenContainer>
-                <InputSubTitle required>예약 진행 시간</InputSubTitle>
-                <InputDescription>일정이 얼마동안 진행되는지 설정합니다. 최대 12시간까지 설정 가능합니다.</InputDescription>
-            </SpaceBetweenContainer>
+            <InputSubTitle required>예약 진행 시간</InputSubTitle>
+            <InputDescription>일정이 얼마동안 진행되는지 설정합니다. 최대 12시간까지 설정 가능합니다.</InputDescription>
             <StyledSelect
                 name="reservationDuration"
                 value={reservationDuration}

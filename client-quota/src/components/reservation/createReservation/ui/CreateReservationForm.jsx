@@ -5,7 +5,7 @@ import axios from "axios";
 
 import InputTitle from "@/components/common/InputTitle";
 import InputSubTitle from "@/components/reservation/createReservation/ui/InputSubTitle";
-import FormField from "./FormField";
+import FormField from "../../../common/FormField";
 import DateRangePicker from "./DateRangePicker";
 import ReservationDurationPicker from "./ReservationDurationPicker";
 import DayTimePicker from "./DayTimePicker";

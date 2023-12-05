@@ -13,6 +13,8 @@ import ExcludedDatesPicker from "./ExcludedDatesPicker";
 import InputTextarea from "@/components/common/InputTextarea";
 import InputLink from "@/components/common/InputLink";
 
+import { postCreatedReservation } from "@/api/reservationApi";
+
 
 const CreateReservationForm = () => {
     const [roomName, setRoomName] = useState('');
@@ -29,7 +31,9 @@ const CreateReservationForm = () => {
     // '다음' 버튼 클릭 시 처리 함수
     //  디버깅 목적으로 콘솔에 폼 데이터 로그
     const handleNextClick = () => {
-        console.log("Room Name:", roomName);
+        console.log("userId: ", "userId");  //추후 수정 예정
+        console.log("teamId: ", "teamId");  //추후 수정 예정
+        console.log("Room Name: ", roomName);
         console.log("meetingKind: ", meetingKind);
         console.log("meetingLocation: ", meetingLocation)
         console.log("Range Start:", rangeStart);
@@ -58,8 +62,8 @@ const CreateReservationForm = () => {
 
     // POST 요청을 위한 데이터 준비
     const postData = {
-        "userId": 1234567,
-        "teamId": 22222,
+        "userId": 1234567,  //임의의 값
+        "teamId": 22222,    //임의의 값
         "roomName": roomName,
         "meetingKind": meetingKind,
         "meetingLocation": meetingLocation,
@@ -72,11 +76,11 @@ const CreateReservationForm = () => {
         "roomUrl": roomUrl
     };
 
-    // POST 요청을 보내는 함수
+    // POST 요청을 보내는 부분
     const sendPostRequest = async () => {
         try {
-            const resp = await axios.post('/rooms', postData);
-            console.log(resp.data);
+            const resp = await postCreatedReservation(postData);
+            console.log(resp);
         } catch (err) {
             console.error(err);
         }
@@ -219,7 +223,7 @@ const CreateReservationForm = () => {
                     name="reservationUrl" 
                     placeholder="ReservationExample"
                     value={roomUrl}
-                    onChange={setRoomUrl}>GroupExample</InputLink>
+                    onChange={setRoomUrl}>quotime.co.kr/팀링크</InputLink>
                 <Line/>
 
                 <ButtonContainer>

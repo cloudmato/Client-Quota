@@ -1,14 +1,13 @@
 import styled from 'styled-components';
 
 //<InputLink>고정 링크</InputLink> -> 이런 식으로 작성하시면 FixedLink에 삽입됩니다
+//onChange 콜백이 제공되었을 때만 호출됨 -> 검증로직 등에 사용
 
-const InputLink = ({ name, placeholder, children, value, onChange}) => {
-    return (
-    <StyledInputLink value={value} onChange={(e) => onChange(e.target.value)}>
+const InputLink = ({ name, placeholder, children, onChange}) => {
+    return <StyledInputLink>
         <FixedLink>{children}</FixedLink>
-        <FlexLink name={name} placeholder={placeholder}/>
-    </StyledInputLink> 
-    )
+        <FlexLink name={name} placeholder={placeholder} onChange={onChange ? (e) => onChange(e) : undefined}/>
+    </StyledInputLink>
 }
 
 export default InputLink;
@@ -47,7 +46,7 @@ const FlexLink = styled.input`
 `;
 
 const StyledInputLink = styled.div`
-    width: 450px;
+    width: 700px;
     height: 50px;
     display: flex;
     align-items: center;

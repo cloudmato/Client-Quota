@@ -11,7 +11,7 @@ import ReservationDurationPicker from "./ReservationDurationPicker";
 import DayTimePicker from "./DayTimePicker";
 import ExcludedDatesPicker from "./ExcludedDatesPicker";
 import InputTextarea from "@/components/common/InputTextarea";
-import InputLink from "@/components/common/InputLink";
+import InputRoomLink from "./InputRoomLink";
 
 import { postCreatedReservation } from "@/api/reservationApi";
 
@@ -219,11 +219,11 @@ const CreateReservationForm = () => {
                     onChange={setRoomdescription}/>
 
                 <InputSubTitle required>예약 페이지 주소</InputSubTitle>
-                <InputLink 
-                    name="reservationUrl" 
-                    placeholder="ReservationExample"
+                <InputRoomLink 
+                    name="roomUrl" 
+                    placeholder="RoomExample"
                     value={roomUrl}
-                    onChange={setRoomUrl}>quotime.co.kr/팀링크</InputLink>
+                    onChange={setRoomUrl}>quotime.co.kr/팀링크</InputRoomLink>
                 <Line/>
 
                 <ButtonContainer>

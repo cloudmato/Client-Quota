@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import ExcludedCalender from './ExcludedCalender';
 
-const ExcludedDatesPicker = ({excludedDates, setExcludedDates}) => {
+const ExcludedDatesPicker = ({ excludedDates, setExcludedDates }) => {
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 
   // 캘린더 열기 핸들러
@@ -20,7 +20,7 @@ const ExcludedDatesPicker = ({excludedDates, setExcludedDates}) => {
   // 날짜 추가 핸들러
   const handleAddDates = (dates) => {
     const newDates = dates.map(date => date.toISOString().split('T')[0])
-      .filter(dateStr => !excludedDates.includes(dateStr));
+                           .filter(dateStr => !excludedDates.includes(dateStr));
     setExcludedDates([...excludedDates, ...newDates]);
     handleCloseCalendar();
   };
@@ -31,33 +31,37 @@ const ExcludedDatesPicker = ({excludedDates, setExcludedDates}) => {
     setExcludedDates(excludedDates.filter(dateStr => dateStr !== dateToRemoveStr));
   };
 
-    // 날짜 정렬
-    const sortedExcludedDates = [...excludedDates].sort((a, b) => a - b);
+  // 날짜 정렬
+  const sortedExcludedDates = [...excludedDates].sort((a, b) => a - b);
 
   return (
     <ExcludedDatesContainer>
-    <AddDateButton onClick={handleOpenCalendar}>+ 제외할 날짜 추가</AddDateButton>
-    {isCalendarOpen && (
-      <ModalBackground onClick={handleCloseCalendar}>
-        <ModalContent onClick={e => e.stopPropagation()}>
-          <ExcludedCalender onAddDates={handleAddDates} />
-        </ModalContent>
-      </ModalBackground>
-    )}     
+      {/* "제외할 날짜 추가" 버튼. 클릭 시 캘린더 모달 열림 */}
+      <AddDateButton onClick={handleOpenCalendar}>+ 제외할 날짜 추가</AddDateButton>
+      
+      {/* 캘린더 모달 오픈 여부에 따라 모달을 렌더링 */}
+      {isCalendarOpen && (
+        <ModalBackground onClick={handleCloseCalendar}>
+          {/* 모달 내부에서 발생하는 클릭 이벤트에 의해 모달이 의도치 않게 닫히는 것을 방지 */}
+          <ModalContent onClick={e => e.stopPropagation()}>
+            <ExcludedCalender onAddDates={handleAddDates} />
+          </ModalContent>
+        </ModalBackground>
+      )}     
+
+      {/* 선택한 날짜 리스트로 렌더링되는 부분 */}
       <ExcludedList>
         {sortedExcludedDates.map((date, index) => {
           const formattedDate = new Date(date).toLocaleDateString('ko-KR', {
-            year: 'numeric',
-            month: '2-digit',
-            day: '2-digit'
+            year: 'numeric', month: '2-digit', day: '2-digit'
           }).replace(/. /g, '년 ').replace(/. /g, '월 ').replace(/\.\s?/g, '').replace(/(\d+)$/, '$1일 ');
 
           return (
             <ExcludedDateItem key={index}>
-              {formattedDate}
-              <ExcludedDateItemDesc> 해당 날짜 제외</ExcludedDateItemDesc>
+              {formattedDate} {/* 포맷팅된 날짜 표시 */}
+              <ExcludedDateItemDesc> 해당 날짜 제외</ExcludedDateItemDesc> {/* 날짜 제외 설명 */}
               <DeleteButton onClick={(e) => handleRemoveDate(date)}>
-                <img src="assets/png/trashIcon.png" alt="trash png" />
+                <img src="assets/png/trashIcon.png" alt="trash png" /> {/* 삭제 아이콘 */}
               </DeleteButton>
             </ExcludedDateItem>
           );

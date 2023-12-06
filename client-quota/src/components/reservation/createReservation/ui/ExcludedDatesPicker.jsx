@@ -44,7 +44,7 @@ const ExcludedDatesPicker = ({ excludedDates, setExcludedDates }) => {
         <ModalBackground onClick={handleCloseCalendar}>
           {/* 모달 내부에서 발생하는 클릭 이벤트에 의해 모달이 의도치 않게 닫히는 것을 방지 */}
           <ModalContent onClick={e => e.stopPropagation()}>
-            <ExcludedCalender onAddDates={handleAddDates} />
+            <ExcludedCalender onAddDates={handleAddDates} onClose={handleCloseCalendar} />
           </ModalContent>
         </ModalBackground>
       )}     

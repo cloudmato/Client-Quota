@@ -5,7 +5,7 @@ import Calendar from '../../../common/Calender';
 import InputSubTitle from './InputSubTitle';
 
 
-const ExcludedCalender = ({onAddDates}) => {
+const ExcludedCalender = ({onAddDates, onClose}) => {
     // 선택된 날짜들을 저장하기 위한 상태
     const [selectedDates, setSelectedDates] = useState([]);
 
@@ -27,7 +27,7 @@ return (
         <Line />
         <InputSubTitle desc="해당 날짜들은 예약을 받지 않습니다. "></InputSubTitle>
         <ButtonContainer>
-            <GreyButton>취소</GreyButton>
+            <GreyButton onClick={onClose}>취소</GreyButton>
             <PulpleButton onClick={() => onAddDates(selectedDates)}>저장</PulpleButton>
         </ButtonContainer>
     </ExcludedCalenderContainer>

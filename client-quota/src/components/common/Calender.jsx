@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-const Calendar = ({ onSelectDate, onSelectDates, availableTime, singleSelectMode = false }) => {
+const Calendar = ({ onSelectDates, availableTime, singleSelectMode = false }) => {
     // 상태 관리: 현재 날짜와 선택된 날짜들
     const [currentDate, setCurrentDate] = useState(new Date());
     const [selectedDates, setSelectedDates] = useState([]);
@@ -54,8 +54,8 @@ const Calendar = ({ onSelectDate, onSelectDates, availableTime, singleSelectMode
 
     // 날짜 선택 여부 확인
     const isSelected = (day) => {
-        const checkDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), day);
-        return selectedDates.some(date => date.getTime() === checkDate.getTime());
+      const checkDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), day);
+      return selectedDates.some(date => date.getTime() === checkDate.getTime());
     };
 
     // 과거 날짜 여부 확인
@@ -80,9 +80,8 @@ const Calendar = ({ onSelectDate, onSelectDates, availableTime, singleSelectMode
 
     // 선택된 날짜 변경 감지
     useEffect(() => {
-      onSelectDate(selectedDates);
       onSelectDates(selectedDates);
-    }, [selectedDates, onSelectDate, onSelectDates]); 
+    }, [selectedDates]); 
 
 
 

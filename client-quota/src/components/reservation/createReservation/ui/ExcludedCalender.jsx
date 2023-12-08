@@ -12,7 +12,6 @@ const ExcludedCalender = ({onAddDates, onClose, availableTime}) => {
     // 날짜 선택 핸들러 함수
     const handleDateSelect = (dates) => {
         setSelectedDates(dates);
-        console.log('ExcludedCalender/handleDateSelect(): ',selectedDates)
     };
 
 return (

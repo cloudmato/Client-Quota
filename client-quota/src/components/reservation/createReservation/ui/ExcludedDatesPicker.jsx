@@ -19,10 +19,14 @@ const ExcludedDatesPicker = ({ excludedDates, setExcludedDates, availableTime })
 
   // 날짜 추가 핸들러
   const handleAddDates = (dates) => {
-    const newDates = dates.map(date => date.toISOString().split('T')[0])
-                           .filter(dateStr => !excludedDates.includes(dateStr));
+    const newDates = dates.map(date => {
+      const adjustedDate = new Date(date.getTime() - (date.getTimezoneOffset() * 60000));
+      return adjustedDate.toISOString().split('T')[0];
+    }).filter(dateStr => !excludedDates.includes(dateStr));
+
     setExcludedDates([...excludedDates, ...newDates]);
     console.log('excludedDates: ', excludedDates);
+    
     handleCloseCalendar();
   };
   

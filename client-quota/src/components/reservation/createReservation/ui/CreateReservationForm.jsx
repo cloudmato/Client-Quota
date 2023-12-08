@@ -52,7 +52,7 @@ const CreateReservationForm = () => {
         월: false, 화: false, 수: false, 목: false, 금: false, 토: false, 일: false,
     });
 
-    const days = ["월", "화", "수", "목", "금", "토", "일"];
+    const days = ["일", "월", "화", "수", "목", "금", "토"];
 
     const [startTime, setStartTime] = useState('');
     const [endTime, setEndTime] = useState('');

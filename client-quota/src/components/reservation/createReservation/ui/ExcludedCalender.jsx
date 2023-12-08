@@ -5,13 +5,14 @@ import Calendar from '../../../common/Calender';
 import InputSubTitle from './InputSubTitle';
 
 
-const ExcludedCalender = ({onAddDates, onClose}) => {
+const ExcludedCalender = ({onAddDates, onClose, availableTime}) => {
     // 선택된 날짜들을 저장하기 위한 상태
     const [selectedDates, setSelectedDates] = useState([]);
 
     // 날짜 선택 핸들러 함수
     const handleDateSelect = (dates) => {
         setSelectedDates(dates);
+        console.log('ExcludedCalender/handleDateSelect(): ',selectedDates)
     };
 
 return (
@@ -23,7 +24,10 @@ return (
 
         <Line />
         
-        <Calendar onSelectDate={handleDateSelect} />
+        <Calendar 
+          onSelectDate={handleDateSelect}
+          availableTime={availableTime} 
+          onSelectDates={handleDateSelect}/>
         <Line />
         <InputSubTitle desc="해당 날짜들은 예약을 받지 않습니다. "></InputSubTitle>
         <ButtonContainer>

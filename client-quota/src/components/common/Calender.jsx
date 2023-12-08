@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-const Calendar = ({ onSelectDate, singleSelectMode = false }) => {
+const Calendar = ({ onSelectDate, onSelectDates, availableTime, singleSelectMode = false }) => {
     // 상태 관리: 현재 날짜와 선택된 날짜들
     const [currentDate, setCurrentDate] = useState(new Date());
     const [selectedDates, setSelectedDates] = useState([]);
@@ -64,10 +64,25 @@ const Calendar = ({ onSelectDate, singleSelectMode = false }) => {
         return checkDate < new Date();
     };
 
+    // 예약 불가능 요일 확인
+    const isSelectableDayOfWeek = (day) => {
+      const checkDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), day);  
+      const dayOfWeek = checkDate.getDay();
+  
+      // availableTime 배열을 순회하며 해당 요일이 포함되어 있는지 확인
+      for (let i = 0; i < availableTime.length; i++) {
+          if (availableTime[i].wDay === dayOfWeek) {
+              return true; // 해당 요일이 availableTime 배열에 포함되어 있음
+          }
+      }
+      return false; // 해당 요일이 availableTime 배열에 포함되어 있지 않음
+  };
+
     // 선택된 날짜 변경 감지
     useEffect(() => {
-        onSelectDate(selectedDates);
-    }, [selectedDates, onSelectDate]);
+      onSelectDate(selectedDates);
+      onSelectDates(selectedDates);
+    }, [selectedDates, onSelectDate, onSelectDates]); 
 
 
 
@@ -91,17 +106,18 @@ const Calendar = ({ onSelectDate, singleSelectMode = false }) => {
           <tbody>
             {Array.from({ length: Math.ceil(daysArray.length / 7) }, (_, weekIndex) => (
                 <tr key={weekIndex}>
-                {daysArray.slice(weekIndex * 7, weekIndex * 7 + 7).map((day, dayIndex) => (
-                <Day key={dayIndex}
-                onClick={() => !isPast(day) && handleDayClick(day)}
-                isSelectable={!isPast(day)}
-                isSelected={singleSelectMode ? isSelectedSingle(day) : isSelected(day)}
-                isPast={isPast(day)}>
-                {day}
-              </Day>
-
-
-                ))}
+                  {daysArray.slice(weekIndex * 7, weekIndex * 7 + 7).map((day, dayIndex) => (
+                        <Day 
+                          key={dayIndex}
+                          onClick={() => !isPast(day) && isSelectableDayOfWeek(day) && handleDayClick(day)}
+                          isSelectable={!isPast(day) && isSelectableDayOfWeek(day)}
+                          isSelected={singleSelectMode ? isSelectedSingle(day) : isSelected(day)}
+                          isPast={isPast(day)}>
+                        {day}
+                      </Day>
+                      )
+                    )
+                  }
               </tr>
             ))}
           </tbody>
@@ -161,11 +177,11 @@ const CalendarHeader = styled.th`
 const Day = styled.td`
   padding: 10px;
   text-align: center;
-  cursor: pointer;
+  cursor: pointer;  
   border-radius: 50%;
   background-color: ${props => props.isSelected ? '#6349F6' : (props.isSelectable ? '#D3D3D3' : 'white')};
-  color: ${props => props.isPast ? '#D3D3D3' : 'black'};
-  text-decoration: ${props => props.isPast ? 'line-through' : 'none'};
+  color: ${props => !props.isSelectable ? '#D3D3D3' : 'black'};
+  text-decoration: ${props => props.isSelectable ? 'none' : 'line-through'};
   &:hover {
     background-color: ${props => props.isSelectable && !props.isSelected ? '#eaeaea' : null};
   }

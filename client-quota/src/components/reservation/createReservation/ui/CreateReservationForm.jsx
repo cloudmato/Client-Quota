@@ -44,7 +44,8 @@ const CreateReservationForm = () => {
         console.log("Excluded Dates:", excludedDates);
         console.log("Room Description:", roomDescription);
         console.log("Room URL:", roomUrl);
-    };
+        console.log("active Days: ", activeDays);
+    }; 
 
     // 활성화된 요일과 시간을 관리하기 위한 추가 상태 훅들
     const [activeDays, setActiveDays] = useState({
@@ -128,6 +129,15 @@ const CreateReservationForm = () => {
         }));
     };
 
+    useEffect(() => {
+        // 상태가 변경될 때 필요한 로직을 여기에 작성합니다.
+        // 예를 들면, 상태에 따라 사용자에게 보여줄 메시지를 변경하거나,
+        // 특정 조건에 따라 다른 컴포넌트를 렌더링하는 등의 작업을 할 수 있습니다.
+
+        // 예시: 상태가 변경될 때 콘솔에 로그를 출력
+        console.log("예약 가능 기간이나 활성화된 요일이 변경되었습니다.", rangeStart, rangeEnd, activeDays);
+    }, [rangeStart, rangeEnd, activeDays]); // 의존성 배열에 상태를 넣어줍니다.
+
     return (
         <StyledReservationForm>
             <ReservationInputContainer>
@@ -207,6 +217,7 @@ const CreateReservationForm = () => {
                         <ExcludedDatesPicker
                             excludedDates={excludedDates}
                             setExcludedDates={setExcludedDates}
+                            availableTime={availableTime}
                         />          
                     </DaysContainer>      
              </SpaceBetweenContainer>

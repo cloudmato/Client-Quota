@@ -1,7 +1,7 @@
 import CreateReservationLanding from "@/components/reservation/createReservation/CreateReservationLanding";
 
-const CreateReservationPage = () => {
+const reservationPage = () => {
     return <CreateReservationLanding/>
 };
 
-export default CreateReservationPage;
+export default reservationPage;

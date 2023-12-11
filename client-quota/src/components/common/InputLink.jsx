@@ -46,7 +46,7 @@ const FlexLink = styled.input`
 `;
 
 const StyledInputLink = styled.div`
-    width: 450px;
+    width: 700px;
     height: 50px;
     display: flex;
     align-items: center;

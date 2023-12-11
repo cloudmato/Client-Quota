@@ -1,7 +1,14 @@
 import styled from 'styled-components';
 
-const InputTextarea = ({ name, placeholder }) => {
-    return <StyledInputTextarea type="textarea" name={name} placeholder={placeholder}/>
+const InputTextarea = ({ name, placeholder, value, onChange }) => {
+    return (
+    <StyledInputTextarea 
+    type="textarea" 
+    name={name} 
+    placeholder={placeholder} 
+    value={value} 
+    onChange={(e) => onChange(e.target.value)}/>
+    )
 }
 
 export default InputTextarea;

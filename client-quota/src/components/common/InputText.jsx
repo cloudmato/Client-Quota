@@ -1,7 +1,15 @@
 import styled from 'styled-components';
 
-const InputText = ({ name, placeholder }) => {
-    return <StyledInputText type="text" name={name} placeholder={placeholder}/>
+const InputText = ({ name, placeholder, value, onChange }) => {
+    return (
+        <StyledInputText 
+            type="text" 
+            name={name} 
+            placeholder={placeholder} 
+            value={value}
+            onChange={(e) => onChange(e.target.value)}
+        />
+    );
 }
 
 export default InputText;

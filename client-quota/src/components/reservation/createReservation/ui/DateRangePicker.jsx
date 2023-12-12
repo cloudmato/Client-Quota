@@ -5,7 +5,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 import InputSubTitle from './InputSubTitle';
 
-const DateRangePicker = ({ rangeStart, rangeEnd, setRangeStart, setRangeEnd }) => {
+const DateRangePicker = ({ rangeStart, rangeEnd, setRangeStart, setRangeEnd, error }) => {
   const dateNow = new Date();
   const today = dateNow.toISOString().slice(0, 10);
 
@@ -14,6 +14,7 @@ const DateRangePicker = ({ rangeStart, rangeEnd, setRangeStart, setRangeEnd }) =
   const tomorrowFormatted = tomorrow.toISOString().slice(0, 10);
 
   return (
+    <>
     <DateRangeContainer>
       <InputSubTitle required>예약 가능한 기간</InputSubTitle>
       <InputDescription>특정 시간 범위 안에서만 예약 가능하도록 설정이 가능합니다.</InputDescription>
@@ -42,6 +43,8 @@ const DateRangePicker = ({ rangeStart, rangeEnd, setRangeStart, setRangeEnd }) =
         />
       </DatePickerWrapper>
     </DateRangeContainer>
+    {error && (<ErrorDescription>{error}</ErrorDescription>)}
+    </>
   );
 };
 
@@ -69,3 +72,7 @@ const InputDescription = styled.p`
   color: #6c757d;
 `;
 
+const ErrorDescription = styled.div`
+    font-size: 16px;
+    color: red;
+`;

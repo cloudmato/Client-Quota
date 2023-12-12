@@ -27,6 +27,7 @@ const CreateReservationForm = () => {
     const [excludedDates, setExcludedDates] = useState([]);
     const [roomDescription, setRoomdescription] = useState('');
     const [roomUrl, setRoomUrl] = useState('');
+    const [errors, setErrors] = useState({});
 
     // '다음' 버튼 클릭 시 처리 함수
     //  디버깅 목적으로 콘솔에 폼 데이터 로그
@@ -45,6 +46,21 @@ const CreateReservationForm = () => {
         console.log("Room Description:", roomDescription);
         console.log("Room URL:", roomUrl);
         console.log("active Days: ", activeDays);
+
+        // 필수 입력 필드 검증
+        let newErrors = {};
+        if (!roomName.trim()) newErrors.roomName = '! 예약 이름을 입력해주세요.';
+        if (!meetingKind.trim()) newErrors.meetingKind = '! 미팅 방법을 입력해주세요.';
+        if (!meetingLocation.trim()) newErrors.meetingLocation = '! 미팅 장소를 입력해주세요.';
+        if (!rangeStart||!rangeEnd) newErrors.rangeStart = '! 예약 가능 기간을 선택해주세요.';
+        if (availableTime.length === 0) newErrors.availableTime = '! 예약 가능 요일을 선택해주세요.';
+        // ... 나머지 필수 입력 필드 검증
+
+        // 오류가 있을 경우, 오류 메시지 상태를 업데이트하고 함수를 종료
+        if (Object.keys(newErrors).length > 0) {
+            setErrors(newErrors);
+            return;
+        }
     }; 
 
     // 활성화된 요일과 시간을 관리하기 위한 추가 상태 훅들
@@ -128,6 +144,7 @@ const CreateReservationForm = () => {
             [day]: isActive,
         }));
     };
+    
 
     useEffect(() => {
         // 상태가 변경될 때 필요한 로직을 여기에 작성합니다.
@@ -157,7 +174,8 @@ const CreateReservationForm = () => {
                     placeholder="예약 이름"
                     value={roomName}
                     onChange={setRoomName}
-                />
+                    error={errors.roomName} 
+                    />
 
                 <FormField 
                     title="미팅 방법" 
@@ -166,6 +184,7 @@ const CreateReservationForm = () => {
                     value={meetingKind}
                     onChange={setMeetingKind}
                     description="오프라인 미팅, 온라인 미팅 등 미팅 방법을 설정해주세요."
+                    error={errors.meetingKind} 
                 />
 
                 <FormField 
@@ -175,6 +194,7 @@ const CreateReservationForm = () => {
                     value={meetingLocation}
                     onChange={setMeetingLocation}
                     description="오프라인 미팅일 경우 미팅 장소, 온라인 미팅일 경우 링크 혹은 플랫폼 종류를 입력해주세요."
+                    error={errors.meetingLocation} 
                 />
 
                 <Line/>
@@ -184,6 +204,7 @@ const CreateReservationForm = () => {
                     rangeEnd={rangeEnd}
                     setRangeStart={setRangeStart}
                     setRangeEnd={setRangeEnd}    
+                    error={errors.rangeStart}
                 />    
 
 
@@ -197,6 +218,7 @@ const CreateReservationForm = () => {
                 <SpaceBetweenContainer>
                     <DaysContainer>
                         <InputSubTitle required>요일별 가능한 시간</InputSubTitle>
+                        {errors.availableTime && (<ErrorDescription>{errors.availableTime}</ErrorDescription>)}
                         {days.map((day) => (
                             <DayTimePicker
                                 key={day}
@@ -213,7 +235,7 @@ const CreateReservationForm = () => {
                     </DaysContainer>
                     <VerticalLine/>
                     <DaysContainer>
-                        <InputSubTitle required desc="특정 일자를 제외할 수 있습니다.">제외할 날짜</InputSubTitle>
+                        <InputSubTitle desc="특정 일자를 제외할 수 있습니다.">제외할 날짜</InputSubTitle>
                         <ExcludedDatesPicker
                             excludedDates={excludedDates}
                             setExcludedDates={setExcludedDates}
@@ -339,4 +361,10 @@ const VerticalLine = styled.div`
     height: auto;
     border-left: 1px solid var(--gray-color);
     margin: 0 20px;
+`;
+
+const ErrorDescription = styled.div`
+    margin-top: 8px;
+    font-size: 16px;
+    color: red;
 `;

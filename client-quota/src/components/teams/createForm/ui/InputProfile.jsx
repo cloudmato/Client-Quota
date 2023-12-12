@@ -3,19 +3,23 @@ import styled from 'styled-components';
 
 const TeamProfileIcon = "/assets/svg/teamProfileIcon.svg"
 
-const InputProfile = () => {
+const InputProfile = ({ onImageChange }) => {
     const [profile, setProfile] = useState(TeamProfileIcon);
     const profileInputRef = useRef(null);
 
     //프로필 이미지 삽입
     const handleProfileChange = (e) => {
         const file = e.target.files[0];
-        if (!file) return;
+        if (!file) {
+            onImageChange(null); // 파일이 없으면 null 전달
+            return;
+        }
 
         const reader = new FileReader();
         
         reader.onload = () => {
             setProfile(reader.result);
+            onImageChange(reader.result);
         };
 
         reader.onerror = (error) => {
@@ -28,6 +32,7 @@ const InputProfile = () => {
     //프로필 이미지 삭제
     const handleProfileRemove = () => {
         setProfile(TeamProfileIcon);
+        onImageChange(null); // 이미지 삭제 시 null 전달
     }
 
     const triggerProfileInput = () => {

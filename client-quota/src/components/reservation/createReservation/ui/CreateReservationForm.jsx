@@ -163,7 +163,6 @@ const CreateReservationForm = () => {
                         <Circle/>
                         <InputTitle>기본 정보</InputTitle>
                     </InputFormTitle>
-                    <PulpleButton>다음</PulpleButton>
                 </SpaceBetweenContainer>
 
                 <Line/>

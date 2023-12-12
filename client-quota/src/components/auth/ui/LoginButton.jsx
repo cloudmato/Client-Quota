@@ -14,7 +14,10 @@ const LoginButton = () => {
             try {
                 const response = await sendAuthorizationCode(codeResponse.code);
                 localStorage.setItem('accessToken', response.data.accessToken);
-                login(response.data.user);
+                localStorage.setItem('user', JSON.stringify(response.data.user));
+                const user= JSON.parse(localStorage.getItem('user'));
+                console.log(user);
+                login(user);
             } catch (error) {
                 console.error('Error', error);
             }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-const Calendar = ({ onSelectDates, availableTime, singleSelectMode = false }) => {
+const Calendar = ({ onSelectDates = () => {} , availableTime=[], singleSelectMode = false }) => {
     // 상태 관리: 현재 날짜와 선택된 날짜들
     const [currentDate, setCurrentDate] = useState(new Date());
     const [selectedDates, setSelectedDates] = useState([]);

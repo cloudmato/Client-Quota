@@ -34,7 +34,8 @@ const CreateGroupForm = () => {
     };
 
     const usewindow = () => {
-        window.location.href = '/teamMain'
+        router.push('/teamMain');
+        // window.location.href = '/teamMain'
     }
 
     const handleSubmit = async (e) => {
@@ -42,7 +43,7 @@ const CreateGroupForm = () => {
         if(isFormValid) {
             const formData = new FormData ();
             formData.append("teamName", teamName);
-            formData.append("userId", loggedUser.userId); //임시
+            formData.append("userId", "유진"); //임시
             formData.append("teamProfileImage", teamProfileImage);
             formData.append("teamUrl", teamUrl);
             formData.append("teamDescription", teamDescription);
@@ -62,7 +63,7 @@ const CreateGroupForm = () => {
     }
 
     return (
-        <StyledGroupForm onSubmit={handleSubmit}>
+        <StyledGroupForm>
             <InputTitle>그룹 프로필</InputTitle>
             <InputProfile name="teamProfileImage" onImageChange={setTeamProfileImage}/>
 
@@ -75,14 +76,15 @@ const CreateGroupForm = () => {
             <InputTitle>회사/그룹 소개</InputTitle>
             <InputTextarea name="teamDescription" placeholder="우리 회사/그룹에 대해 설명해 주세요." onChange={setTeamDescription}/>
 
-            <CompleteButton onClick = {usewindow} disabled={isFormValid}>완료</CompleteButton>
+            <CompleteButton onClick = {usewindow} disabled={!isFormValid}>완료</CompleteButton>
         </StyledGroupForm>
     );
 }
 
 export default CreateGroupForm;
 
-const StyledGroupForm = styled.form`
+//잠시 div로 변경
+const StyledGroupForm = styled.div` 
     width: 625px;
     display: flex;
     flex-direction: column;

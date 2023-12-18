@@ -1,7 +1,7 @@
 import InputLink from '@/components/common/InputLink';
 import { useState } from 'react';
 import styled from 'styled-components';
-import { checkTeamUrl } from '@/api/teams';
+// import { checkTeamUrl } from '@/api/teams'; 
 
 const InputGroupLink = ({name, placeholder, children, onTeamUrlChange}) => {
     const [warning, setWarning] = useState(null);
@@ -26,7 +26,8 @@ const InputGroupLink = ({name, placeholder, children, onTeamUrlChange}) => {
 
     const checkTeamUrlValidate = async (value) => {
         try {
-            const response = await checkTeamUrl(value); //api 요청
+            // const response = await checkTeamUrl(value); //api 요청
+            const response = true;
         
             if (response === true) {
                 onTeamUrlChange(value, true);

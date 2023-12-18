@@ -20,5 +20,5 @@ const LoginContainer = styled.div`
     justify-content: center;
     gap: 15px;
     width: 100vw; /* 전체 뷰포트 너비 */
-    height: 100vh; /* 전체 뷰포트 높이 */
+    height: 80vh; /* 전체 뷰포트 높이 */
 `

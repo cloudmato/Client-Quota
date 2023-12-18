@@ -1,0 +1,29 @@
+{
+  "name": "client-quota",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "aos": "^2.3.4",
+    "@react-oauth/google": "^0.12.1",
+    "axios": "^1.6.2",
+    "next": "13.5.4",
+    "react": "^18",
+    "react-datepicker": "^4.24.0",
+    "react-dom": "^18",
+    "styled-components": "^6.1.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10",
+    "babel-plugin-styled-components": "^2.1.4",
+    "eslint": "^8",
+    "eslint-config-next": "13.5.4",
+    "postcss": "^8",
+    "tailwindcss": "^3"
+  }
+}

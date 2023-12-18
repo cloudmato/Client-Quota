@@ -22,7 +22,7 @@ const CreateGroupForm = () => {
         setIsFormValid(isValid);
     }, [teamName, IsTeamUrlValid]);
 
-    const { loggedUser } = useAuth();
+    //const { loggedUser } = useAuth();
 
     const handleTeamUrlChange = (url, isValid) => {
         setIsTeamUrlValid(isValid);
@@ -32,6 +32,10 @@ const CreateGroupForm = () => {
             setTeamUrl('');
         }
     };
+
+    const usewindow = () => {
+        window.location.href = '/teamMain'
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -71,7 +75,7 @@ const CreateGroupForm = () => {
             <InputTitle>회사/그룹 소개</InputTitle>
             <InputTextarea name="teamDescription" placeholder="우리 회사/그룹에 대해 설명해 주세요." onChange={setTeamDescription}/>
 
-            <CompleteButton disabled={!isFormValid}>완료</CompleteButton>
+            <CompleteButton onClick = {usewindow} disabled={isFormValid}>완료</CompleteButton>
         </StyledGroupForm>
     );
 }

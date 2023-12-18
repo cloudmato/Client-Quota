@@ -8,6 +8,11 @@ import 'aos/dist/aos.css';
 // 추후 CSS 정리 및, 전체적인 비율 px이 아닌 %로 맞춰서 리팩토링 필요
 
 const Home = () => {
+
+  const homeClick= () => {
+    window.location.href = '/login'
+  }
+
   useEffect(() => {
     AOS.init({
       offset: 200,
@@ -22,7 +27,7 @@ const Home = () => {
           <h1>스타트업과 연결해주는</h1> 
           <h1>쉽고 간단한 일정 관리 플랫폼</h1>
           <p style={{fontWeight: 'thin', color: '#565353'}}>멘토링 일정을 빠르게, Quotime과 함께해요</p>
-          <StartButton style={{height:'37px', width:'120px', color:'white'}} data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">시작하기</StartButton>
+          <StartButton onClick = {homeClick} style={{height:'37px', width:'120px', color:'white'}} data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">시작하기</StartButton>
         </EasyPlatformText>
         <EasyPlatformImg>                        
             <img data-aos='fade-up' data-aos-duration='800' data-aos-delay='600' src='assets/svg/easyPlatform.svg' alt="easyPlatform" />

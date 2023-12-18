@@ -7,9 +7,9 @@ const ReservationInfo = () => {
     return (
         <ReservationInfoContainer>
             <InfoContainer>
-                <AdvisorName>예약자 이름입니다</AdvisorName>
-                <ReservationName>예약 이름입니다</ReservationName>
-                <ReservationDuration>1시간</ReservationDuration>
+                <AdvisorName>kyunellroll</AdvisorName>
+                <ReservationName>장유진</ReservationName>
+                <ReservationDuration>1 시간</ReservationDuration>
             </InfoContainer>
             <MadeByQuotimeLogo/>
         </ReservationInfoContainer>

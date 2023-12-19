@@ -7,28 +7,22 @@ const times = [
   '15:00', '16:00', '17:00', '18:00', '19:00', '20:00'
 ];
 
-const TimePicker = () => {
-    const [selectedTime, setSelectedTime] = useState(null);
-    
-    // 시간 선택 핸들러
-    const handleTimeSelect = (time) => {
-        setSelectedTime(time);
-    };
-    
-    return (
-        <TimeListWrapper>
-            {times.map((time, index) => (
-                <TimeSlot
-                    key={index}
-                    selected={selectedTime === time}
-                    onClick={() => handleTimeSelect(time)}
-                >
-                    {time}
-                </TimeSlot>
-            ))}
-        </TimeListWrapper>
-    );
+const TimePicker = ({ selectedTime, onTimeChange }) => {
+  return (
+    <TimeListWrapper>
+      {times.map((time, index) => (
+        <TimeSlot
+          key={index}
+          selected={selectedTime === time}
+          onClick={() => onTimeChange(time)}
+        >
+          {time}
+        </TimeSlot>
+      ))}
+    </TimeListWrapper>
+  );
 };
+
 
 export default TimePicker;
 

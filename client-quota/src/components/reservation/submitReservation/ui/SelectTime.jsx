@@ -6,11 +6,16 @@ import TimePicker from './TimePicker';
 
 
 const SelectTime = () => {
-  const [time, setTime] = useState('12:00'); 
+  const [selectedTime, setSelectedTime] = useState('12:00'); 
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const hendleCompleteClick = () => {
     setIsModalVisible(true);
+  }
+
+  // 선택된 시간 업데이트
+  const handleTimeChange = (time) => {
+    setSelectedTime(time); 
   }
 
   // 모달을 닫고 /main으로 이동
@@ -26,7 +31,7 @@ const SelectTime = () => {
       <SelectTimeContainer>
         <TimePickerContainer>
           <h2>시간 선택</h2>
-          <TimePicker/>
+          <TimePicker selectedTime={selectedTime} onTimeChange={handleTimeChange} />
         </TimePickerContainer>
       </SelectTimeContainer>
       <Button onClick={hendleCompleteClick}>완료</Button>
@@ -40,7 +45,7 @@ const SelectTime = () => {
                             <ModalContents>
                                 <img src="assets/svg/checkIcon.svg" alt="checkIcon SVG"/>
                                 <CompleteReservationMent>예약이 완료되었습니다.</CompleteReservationMent>
-                                <BookingContents>예약 일시: 2023년 12월 25일 13시</BookingContents>
+                                <BookingContents>예약 일시: 2023년 12월 25일 {selectedTime}</BookingContents>
                             </ModalContents>
                         </ModalContainer>
                     </ModalBackground>

@@ -16,7 +16,7 @@ const ReservationModal = () => {
             <ReserveImg id="meet" src={"assets/svg/memberProfile.svg"} text={"kyunellroll"} style={{marginLeft:'18px'}}></ReserveImg>
             <ReserveImg src={"assets/svg/date.svg"} text={"월, 화, 수"} style={{marginLeft:'20px'}}></ReserveImg>
             <CopyLinkContainer id="copyLink">
-                <p id='teamInfo'>https://quotime.co.kr/quotaspace/semi</p>
+                <p id='teamInfo'>https://client-quota.vercel.app/booking</p>
             </CopyLinkContainer>
         </ReservationModalContiner>
     )

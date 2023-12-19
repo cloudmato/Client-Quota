@@ -57,7 +57,9 @@ const InputGroupLink = ({name, placeholder, children, onTeamUrlChange}) => {
     return (
     <StyledInputGroupLink>
         <InputGroup>
-            <InputLink name={name} placeholder={placeholder} onChange={handleInputChange} children={children}/>
+            <InputLink name={name} placeholder={placeholder} onChange={handleInputChange}>
+                {children}    
+            </InputLink>
             <GroupLinkCheckButton onClick={handleCheckButton}>중복확인</GroupLinkCheckButton>
         </InputGroup>
         {warning && <WarningMessage>{warning}</WarningMessage>}

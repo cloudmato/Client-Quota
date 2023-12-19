@@ -278,7 +278,7 @@ const CreateReservationForm = () => {
                     name="roomUrl" 
                     placeholder="RoomExample"
                     value={roomUrl}
-                    onChange={setRoomUrl}>quotime.co.kr/팀링크</InputRoomLink>
+                    onChange={setRoomUrl}>https://quotime.co.kr/quotaspace/</InputRoomLink>
                 <Line/>
 
                 <ButtonContainer>

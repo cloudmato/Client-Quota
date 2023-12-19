@@ -16,6 +16,7 @@ import InputTextarea from "@/components/common/InputTextarea";
 import InputRoomLink from "./InputRoomLink";
 
 import { postCreatedReservation } from "@/api/reservationApi";
+import CopyLink from "@/components/common/copy/CopyLink";
 
 
 const CreateReservationForm = () => {
@@ -28,8 +29,10 @@ const CreateReservationForm = () => {
     const [availableTime, setAvailableTime] = useState([]);
     const [excludedDates, setExcludedDates] = useState([]);
     const [roomDescription, setRoomdescription] = useState('');
-    const [roomUrl, setRoomUrl] = useState('https://quotime.co.kr/quotaspace/semi');
+    const [roomUrl, setRoomUrl] = useState('');
+    const [IsRoomUrlValid, setIsRoomUrlValid] = useState(false);
     const [errors, setErrors] = useState({});
+
 
     const [isModalVisible, setIsModalVisible] = useState(false);
     const linkTextRef = useRef(null); // LinkText에 대한 ref를 생성합니다.
@@ -76,7 +79,7 @@ const CreateReservationForm = () => {
    
     const handleCloseModalAndRedirect = () => {
         setIsModalVisible(false); 
-        router.push('/main');
+        window.location.href = '/teamReserveMain';  
     };
         
     // 활성화된 요일과 시간을 관리하기 위한 추가 상태 훅들
@@ -160,6 +163,17 @@ const CreateReservationForm = () => {
             [day]: isActive,
         }));
     };
+
+    //팀 링크 생성 함수
+    const handleRoomUrlChange = (url, isValid) => {
+        setIsRoomUrlValid(isValid);
+        if(isValid) {
+            url = "https://client-quota.vercel.app/" + url;
+            setRoomUrl(url);
+        } else {
+            setRoomUrl('');
+        }
+    }
     
 
     useEffect(() => {
@@ -278,7 +292,8 @@ const CreateReservationForm = () => {
                     name="roomUrl" 
                     placeholder="RoomExample"
                     value={roomUrl}
-                    onChange={setRoomUrl}>https://quotime.co.kr/quotaspace/</InputRoomLink>
+                    // onChange={setRoomUrl}
+                    onRoomUrlChange={handleRoomUrlChange}>https://client-quota.vercel.app/</InputRoomLink>
                 <Line/>
 
                 <ButtonContainer>
@@ -297,9 +312,7 @@ const CreateReservationForm = () => {
                                 <CompleteReservationMent>예약 생성이 완료되었습니다.</CompleteReservationMent>
                                 <LinkArea>
                                     <LinkText ref={linkTextRef}>{roomUrl}</LinkText>
-                                    <CopyButtonArea style={{ width: `${linkTextWidth}px` }}>
-                                        링크복사 <img src="assets/svg/copyIcon.svg" alt="copyIcon SVG"/>
-                                    </CopyButtonArea>
+                                    <CopyLink textToCopy={'https://client-quota.vercel.app/booking'}></CopyLink>
                                 </LinkArea>
                             </ModalContents>
                         </ModalContainer>
@@ -309,6 +322,7 @@ const CreateReservationForm = () => {
         </StyledReservationForm>
     );
 }
+
 
 export default CreateReservationForm;
 
@@ -487,14 +501,5 @@ const LinkText = styled.div`
   text-decoration: underline;
 `;
 
-// 링크 복사 버튼 영역 
-const CopyButtonArea = styled.div`
-  cursor: pointer;
-  display: flex;
-  margin-top: 10px;
-  color: var(--primary-color);
-  font-size: 15px;
-  justify-content: center;
-`;
 
 

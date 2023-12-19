@@ -2,15 +2,17 @@ import styled from 'styled-components'
 import { useEffect } from 'react'
 import Button from '../common/Button';
 import AOS from 'aos';
-
 import 'aos/dist/aos.css';
+import { useRouter } from 'next/router';
 
 // 추후 CSS 정리 및, 전체적인 비율 px이 아닌 %로 맞춰서 리팩토링 필요
 
 const Home = () => {
+  const router = useRouter();
 
   const homeClick= () => {
-    window.location.href = '/login'
+    router.push('/login');
+    // window.location.href = '/login'
   }
 
   useEffect(() => {

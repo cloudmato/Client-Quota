@@ -15,12 +15,9 @@ const SelectDate = () => {
     durationKind: "HOUR",
     duration: 1,
     availableTimeDTOS: [
-      { startTime: "11:00:00", endTime: "12:00:00", wDay: 0 },
       { startTime: "11:00:00", endTime: "12:00:00", wDay: 1 },
       { startTime: "11:00:00", endTime: "12:00:00", wDay: 2 },
-      { startTime: "11:00:00", endTime: "12:00:00", wDay: 4 },
-      { startTime: "13:00:00", endTime: "17:00:00", wDay: 5 },
-      { startTime: "13:00:00", endTime: "17:00:00", wDay: 6 },
+      { startTime: "11:00:00", endTime: "12:00:00", wDay: 3 },
     ],
     excludeDate: ["2023-12-12", "2023-05-09", "2023-05-09"],
     roomDescription: "room에 대한 설명",

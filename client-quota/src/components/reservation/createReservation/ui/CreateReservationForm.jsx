@@ -29,8 +29,10 @@ const CreateReservationForm = () => {
     const [availableTime, setAvailableTime] = useState([]);
     const [excludedDates, setExcludedDates] = useState([]);
     const [roomDescription, setRoomdescription] = useState('');
-    const [roomUrl, setRoomUrl] = useState('https://client-quota.vercel.app/booking');
+    const [roomUrl, setRoomUrl] = useState('');
+    const [IsRoomUrlValid, setIsRoomUrlValid] = useState(false);
     const [errors, setErrors] = useState({});
+
 
     const [isModalVisible, setIsModalVisible] = useState(false);
     const linkTextRef = useRef(null); // LinkText에 대한 ref를 생성합니다.
@@ -161,6 +163,17 @@ const CreateReservationForm = () => {
             [day]: isActive,
         }));
     };
+
+    //팀 링크 생성 함수
+    const handleRoomUrlChange = (url, isValid) => {
+        setIsRoomUrlValid(isValid);
+        if(isValid) {
+            url = "https://client-quota.vercel.app/" + url;
+            setRoomUrl(url);
+        } else {
+            setRoomUrl('');
+        }
+    }
     
 
     useEffect(() => {
@@ -279,7 +292,8 @@ const CreateReservationForm = () => {
                     name="roomUrl" 
                     placeholder="RoomExample"
                     value={roomUrl}
-                    onChange={setRoomUrl}>https://client-quota.vercel.app/</InputRoomLink>
+                    // onChange={setRoomUrl}
+                    onRoomUrlChange={handleRoomUrlChange}>https://client-quota.vercel.app/</InputRoomLink>
                 <Line/>
 
                 <ButtonContainer>
@@ -308,6 +322,7 @@ const CreateReservationForm = () => {
         </StyledReservationForm>
     );
 }
+
 
 export default CreateReservationForm;
 

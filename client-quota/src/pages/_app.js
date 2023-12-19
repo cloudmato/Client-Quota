@@ -4,7 +4,7 @@
 // _app은 로직, 전역 스타일 등 컴포넌트에 공통 데이터를 다룬다. 
 
 import Footer from '@/components/common/Footer';
-import Header from '@/components/common/header';
+import Header from '@/components/common/Header';
 import styled from 'styled-components';
 import '@/styles/globals.css'
 import { GoogleOAuthProvider } from '@react-oauth/google';

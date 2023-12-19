@@ -28,7 +28,7 @@ const CreateReservationForm = () => {
     const [availableTime, setAvailableTime] = useState([]);
     const [excludedDates, setExcludedDates] = useState([]);
     const [roomDescription, setRoomdescription] = useState('');
-    const [roomUrl, setRoomUrl] = useState('http://firstmeetinglink');
+    const [roomUrl, setRoomUrl] = useState('https://quotime.co.kr/quotaspace/semi');
     const [errors, setErrors] = useState({});
 
     const [isModalVisible, setIsModalVisible] = useState(false);
@@ -278,7 +278,7 @@ const CreateReservationForm = () => {
                     name="roomUrl" 
                     placeholder="RoomExample"
                     value={roomUrl}
-                    onChange={setRoomUrl}>quotime.co.kr/팀링크</InputRoomLink>
+                    onChange={setRoomUrl}>https://quotime.co.kr/quotaspace/</InputRoomLink>
                 <Line/>
 
                 <ButtonContainer>
@@ -491,9 +491,10 @@ const LinkText = styled.div`
 const CopyButtonArea = styled.div`
   cursor: pointer;
   display: flex;
+  margin-top: 10px;
   color: var(--primary-color);
   font-size: 15px;
-  justify-content: right;
+  justify-content: center;
 `;
 
 

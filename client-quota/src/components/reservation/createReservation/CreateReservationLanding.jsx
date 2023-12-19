@@ -9,7 +9,7 @@ const CreateReservationLanding = () => {
                 <ReservationFormTitle
                     onBackClick={() => window.history.back()}
                     title="예약 만들기 그룹"
-                    subTitle="두 번째 팀" //팀 정보 필요
+                    subTitle="QuotaSpace" 
                 />
                 <CreateReservationForm/>
             </ReservationFormContainer>

@@ -33,13 +33,6 @@ const SelectDate = () => {
       setSelectedDates(selectedDates);
     };
 
-  // 제출 핸들러
-  const handleSubmit = () => {
-    alert(`Selected Dates: ${selectedDates.map(date => date.toISOString().split('T')[0]).join(', ')}`);
-  };
-  
-  
-
   return (
     <SelectDateContainer>
       <DatePickerContainer>
@@ -50,7 +43,6 @@ const SelectDate = () => {
           availableTime={reservationData.availableTimeDTOS}
         />
       </DatePickerContainer>
-      <Button onClick={handleSubmit}>확인</Button>
     </SelectDateContainer>
   );
 };
@@ -65,14 +57,3 @@ const DatePickerContainer = styled.div`
   margin-bottom: 20px;
 `;
 
-const Button = styled.button`
-  background-color: #4e3d77;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #372956;
-  }
-`;

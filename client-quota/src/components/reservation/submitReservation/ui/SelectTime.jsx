@@ -18,7 +18,7 @@ const SelectTime = () => {
    
   const handleCloseModalAndRedirect = () => {
       setIsModalVisible(false); 
-      router.push('/main');
+      router.push('/');
   };
   
   return (

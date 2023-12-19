@@ -63,13 +63,20 @@ const CreateReservationForm = () => {
         if (!meetingLocation.trim()) newErrors.meetingLocation = '! 미팅 장소를 입력해주세요.';
         if (!rangeStart||!rangeEnd) newErrors.rangeStart = '! 예약 가능 기간을 선택해주세요.';
         if (availableTime.length === 0) newErrors.availableTime = '! 예약 가능 요일을 선택해주세요.';
-        // ... 나머지 필수 입력 필드 검증
-
+        if (!IsRoomUrlValid) newErrors.roomUrlValid = '!예약 링크 중복 검사가 완료되지 않았습니다.';
+        
         // 오류가 있을 경우, 오류 메시지 상태를 업데이트하고 함수를 종료
         if (Object.keys(newErrors).length > 0) {
-            setErrors(newErrors);
-            return;
+            if(!IsRoomUrlValid) {
+                alert(newErrors.roomUrlValid);
+                return;
+            }
+            else {
+                setErrors(newErrors);
+                return;
+            }
         }
+
 
         setIsModalVisible(true);
     }; 

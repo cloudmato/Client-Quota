@@ -76,7 +76,7 @@ const CreateReservationForm = () => {
    
     const handleCloseModalAndRedirect = () => {
         setIsModalVisible(false); 
-        router.push('/main');
+        window.location.href = '/main';  
     };
         
     // 활성화된 요일과 시간을 관리하기 위한 추가 상태 훅들

@@ -76,7 +76,7 @@ const CreateReservationForm = () => {
    
     const handleCloseModalAndRedirect = () => {
         setIsModalVisible(false); 
-        window.location.href = '/main';  
+        window.location.href = '/teamReserveMain';  
     };
         
     // 활성화된 요일과 시간을 관리하기 위한 추가 상태 훅들

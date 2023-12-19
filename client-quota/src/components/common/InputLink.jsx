@@ -13,8 +13,10 @@ const InputLink = ({ name, placeholder, children, onChange}) => {
 export default InputLink;
 
 const FixedLink = styled.div`
-    width: 180px;
+    width: auto;
     height: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
     border-radius: 20px;
     border: 2px solid var(--D3, #D3D3D3);
     display: flex;
@@ -46,7 +48,7 @@ const FlexLink = styled.input`
 `;
 
 const StyledInputLink = styled.div`
-    width: 450px;
+    width: auto;
     height: 50px;
     display: flex;
     align-items: center;

@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 
 const LoginButton = () => {
     // const { login } = useAuth();
-    const router = useRouter;
+    const router = useRouter();
 
     const googleLogin = useGoogleLogin({
         flow: 'auth-code',
@@ -29,9 +29,10 @@ const LoginButton = () => {
         //         console.error('Error', error);
         //     }
         // },
-        // onError: error => {
-        //     console.error(error);
-        // },
+        onError: error => {
+            console.error(error);
+            router.push('/main');
+        },
     });
 
 

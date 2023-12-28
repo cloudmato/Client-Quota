@@ -14,7 +14,7 @@ const ReservationModal = () => {
             <ReserveImg src={"assets/svg/time.svg"} text={"1 시간"} style={{marginLeft:'20px'}}></ReserveImg>
             <ReserveImg src={"assets/svg/meet.svg"} text={"오프라인"} style={{marginLeft:'23px'}}></ReserveImg>
             <ReserveImg id="meet" src={"assets/svg/memberProfile.svg"} text={"kyunellroll"} style={{marginLeft:'18px'}}></ReserveImg>
-            <ReserveImg src={"assets/svg/date.svg"} text={"월, 화, 수"} style={{marginLeft:'20px'}}></ReserveImg>
+            <ReserveImg src={"assets/svg/date.svg"} text={"목, 금, 토"} style={{marginLeft:'20px'}}></ReserveImg>
             <CopyLinkContainer id="copyLink">
                 <p id='teamInfo'>https://client-quota.vercel.app/booking</p>
             </CopyLinkContainer>

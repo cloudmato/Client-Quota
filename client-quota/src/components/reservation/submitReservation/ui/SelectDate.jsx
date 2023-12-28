@@ -10,14 +10,13 @@ const SelectDate = () => {
     roomName: "first 예약 룸",
     meetingKind: "직접 만나기",
     meetingLocation: "이디야",
-    rangeStart: "2023-12-25",
-    rangeEnd: "2023-12-29",
+    rangeStart: "2023-12-29",
+    rangeEnd: "2023-12-30",
     durationKind: "HOUR",
     duration: 1,
     availableTimeDTOS: [
-      { startTime: "11:00:00", endTime: "12:00:00", wDay: 1 },
-      { startTime: "11:00:00", endTime: "12:00:00", wDay: 2 },
-      { startTime: "11:00:00", endTime: "12:00:00", wDay: 3 },
+      { startTime: "11:00:00", endTime: "12:00:00", wDay: 5 },
+      { startTime: "11:00:00", endTime: "12:00:00", wDay: 6 }
     ],
     excludeDate: ["2023-12-12", "2023-05-09", "2023-05-09"],
     roomDescription: "room에 대한 설명",

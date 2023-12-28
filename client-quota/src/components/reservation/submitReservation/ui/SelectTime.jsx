@@ -45,7 +45,7 @@ const SelectTime = () => {
                             <ModalContents>
                                 <img src="assets/svg/checkIcon.svg" alt="checkIcon SVG"/>
                                 <CompleteReservationMent>예약이 완료되었습니다.</CompleteReservationMent>
-                                <BookingContents>예약 일시: 2023년 12월 25일 {selectedTime}</BookingContents>
+                                <BookingContents>예약 일시: 2023년 12월 29일 {selectedTime}</BookingContents>
                             </ModalContents>
                         </ModalContainer>
                     </ModalBackground>
